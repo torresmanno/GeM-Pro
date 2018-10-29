@@ -249,9 +249,9 @@ and genomic data could be downloaded from ftp.ncbi.nlm.nih.gov following
 the url links indicated
     below.
 
-  - [Protein]<ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/015/785/GCF_000015785.1_ASM1578v1/GCF_000015785.1_ASM1578v1_protein.faa.gz>
-  - [Feature]<ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/015/785/GCF_000015785.1_ASM1578v1/GCF_000015785.1_ASM1578v1_feature_table.txt.gz>
-  - [Genomic]<ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/015/785/GCF_000015785.1_ASM1578v1/GCF_000015785.1_ASM1578v1_genomic.fna.gz>
+[Protein](ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/015/785/GCF_000015785.1_ASM1578v1/GCF_000015785.1_ASM1578v1_protein.faa.gz)
+[Feature](ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/015/785/GCF_000015785.1_ASM1578v1/GCF_000015785.1_ASM1578v1_feature_table.txt.gz)
+[Genomic](ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/015/785/GCF_000015785.1_ASM1578v1/GCF_000015785.1_ASM1578v1_genomic.fna.gz)
 
 Finally, a file indicating the list of strains to be analysed should be
 provided. It is suggested to name this file strains.txt. Strains should
