@@ -20,15 +20,14 @@ be preinstalled. They can be downloaded from:
 
 R. <https://cran.r-project.org/mirrors.html>
 
-BLAST. [ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/](https://goo.gl/GuANzX)
+BLAST.
+[ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/](https://goo.gl/GuANzX)
 
 RStudio. <https://www.rstudio.com/products/rstudio/download/>
 
 OAT\_cmd. <https://www.ezbiocloud.net/tools/orthoani>
 
 Prodigal <https://github.com/hyattpd/prodigal/releases/>
-
-Scripts to run GeM-Pro and q-GeM are available in xxxxxx
 
 ### GeM-Pro Quick Tutorial
 
@@ -245,9 +244,9 @@ perform this classification. (See **Case 2**).
     name\_of\_strain\_genomic.fna (i.e. `FZB42_genomic.fna`)
 
 As an example, for B. velezensis FZB42 files containing protein, feature
-and genomic data could be downloaded from ftp.ncbi.nlm.nih.gov following
-the url links indicated
-    below.
+and genomic data could be downloaded from
+[ftp.ncbi.nlm.nih.gov](https://goo.gl/3oVBvv) following the url links
+indicated below.
 
   - [Protein](https://goo.gl/rxjba3)
   - [Feature](https://goo.gl/YkyJyW)
