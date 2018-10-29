@@ -20,7 +20,7 @@ be preinstalled. They can be downloaded from:
 
 R. <https://cran.r-project.org/mirrors.html>
 
-BLAST. <ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/>
+BLAST. [ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/](https://goo.gl/GuANzX)
 
 RStudio. <https://www.rstudio.com/products/rstudio/download/>
 
@@ -249,9 +249,9 @@ and genomic data could be downloaded from ftp.ncbi.nlm.nih.gov following
 the url links indicated
     below.
 
-[Protein](ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/015/785/GCF_000015785.1_ASM1578v1/GCF_000015785.1_ASM1578v1_protein.faa.gz)
-[Feature](ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/015/785/GCF_000015785.1_ASM1578v1/GCF_000015785.1_ASM1578v1_feature_table.txt.gz)
-[Genomic](ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/015/785/GCF_000015785.1_ASM1578v1/GCF_000015785.1_ASM1578v1_genomic.fna.gz)
+  - [Protein](https://goo.gl/rxjba3)
+  - [Feature](https://goo.gl/YkyJyW)
+  - [Genomic](https://goo.gl/N2J3js)
 
 Finally, a file indicating the list of strains to be analysed should be
 provided. It is suggested to name this file strains.txt. Strains should
