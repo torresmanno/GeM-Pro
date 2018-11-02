@@ -13,6 +13,14 @@ Bayesian probability and Synteny analysis) is a tool for strain
 profiling based on their repertoires of orthologous pathways of
 interest.
 
+## Content
+
+  - [Requirements](#requirements)
+  - [GeM-Pro Quick Tutorial](#gem-pro-quick-tutorial)
+  - [GeM-Pro Tutorial](#gem-pro-tutorial) *[Section I.1. Input
+    files](#section-i-1=input-files) *[Section I.2. Phylogenetic group
+    circumsription](#Section-I-2-Phylogenetic-group-circumsription-optional)
+
 ### Requirements
 
 UNIX like OS (Linux, MacOSX)
