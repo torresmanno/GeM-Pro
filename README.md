@@ -17,9 +17,10 @@ interest.
 
   - [Requirements](#requirements)
   - [GeM-Pro Quick Tutorial](#gem-pro-quick-tutorial)
-  - [GeM-Pro Tutorial](#gem-pro-tutorial) *[Section I.1. Input
-    files](#section-i-1=input-files) *[Section I.2. Phylogenetic group
-    circumsription](#Section-I-2-Phylogenetic-group-circumsription-optional)
+  - [GeM-Pro Tutorial](#gem-pro-tutorial)
+      - [Section I.1. Input files](#section-i-1-input-files)
+      - [Section I.2. Phylogenetic group
+        circumsription](#Section-I-2-Phylogenetic-group-circumsription-optional)
 
 ### Requirements
 
