@@ -102,6 +102,9 @@ Rscript Clustering.R pathway.profiles.RDS 100
 group. All strain genome sequences are well annotated (their CDS are
 well predicted or known).
 
+More information can be found in the Example Case
+[here](./Examples/Example_Case2.md)
+
 *Step 1*. Create gene/pathways (Query\_pathways.csv) file. See Section
 1.1 (Input files) for reference.
 
@@ -138,6 +141,9 @@ of **Case 1**\!
 **Case 3**: The aim is to profile strains with known (and verified\!\!)
 phylogenetic group. Some strain genome sequences are not annotated
 (their CDS are not predicted).
+
+More information can be found in the Example Case
+[here](./Examples/Example_Case3.md)
 
 *Step 1*. Predict CDS and putative protein sequences.
 
@@ -556,6 +562,9 @@ Two cases are considered in this quick tutorial.
 **Case 4:** The aim is to profile strains with known (and verified\!\!)
 phylogenetic group. The phylogenetic group was previously analyzed with
 GeM-Pro.
+
+More information can be found in the Example Case
+[here](./Examples/Example_Case3.md)
 
 *Step 1*. Define Best
 classifier.
