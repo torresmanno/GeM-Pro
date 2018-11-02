@@ -11,12 +11,12 @@ Christian Magni; Lucas D. Daurelo; Martín Espariz
   - [I. GeM-Pro](#i-gem-pro)
       - [Requirements](#requirements)
       - [GeM-Pro Quick Tutorial](#gem-pro-quick-tutorial)
-          - [Case 1: Bacterial profiling with known phylogenetic
-            group](#case-1)
-          - [Case 2: Bacterial profiling with unknown phylogenetic
-            group](#case-2)
-          - [Case 3: Bacterial profiling with unknown protein seq or
-            coding sequence](#case-3)
+          - [Case 1: Profiling of bacteria with known phylogenetic
+            groups](#case-1)
+          - [Case 2: Profiling of bacteria with unknown phylogenetic
+            groups](#case-2)
+          - [Case 3: Profiling of bacteria with unannotated coding
+            sequences](#case-3)
       - [GeM-Pro Tutorial](#gem-pro-tutorial)
           - [Section I.1. Input files](#section-i1-input-files)
           - [Section I.2. Phylogenetic group
@@ -37,8 +37,8 @@ Christian Magni; Lucas D. Daurelo; Martín Espariz
             clustering](#section-i8-hierarchical-clustering)
   - [II. q-GeM](#ii-q-gem)
       - [q-GeM Quick Tutorial](#q-gem-quick-tutorial)
-          - [Case 4: Quick Bacterial profiling with unknown phylogenetic
-            group](#case-4)
+          - [Case 4: Quick profiling of bacteria with known phylogenetic
+            groups](#case-4)
       - [q-GeM Tutorial](#q-gem-tutorial)
           - [Section II.1. Input files](#section-ii1-input-files)
           - [Section II.2. Best Classifier
