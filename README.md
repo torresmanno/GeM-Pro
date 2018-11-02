@@ -37,6 +37,9 @@ Three cases are considered in this quick tutorial.
 phylogenetic group. All strain genome sequences are well annotated
 (their CDS are well predicted or known).
 
+More information can be found in the Example Case
+[here](./Examples/Example_Case1.md)
+
 *Step 1.* Create gene/pathways (Query\_pathways.csv) and phylogenetic
 group (Phylogenetic\_groups.csv) files. See Section I.1. (Input files)
 for reference.
@@ -243,8 +246,8 @@ perform this classification. (See **Case 2**).
   - Genome sequence files in fasta format should be named
     name\_of\_strain\_genomic.fna (i.e. `FZB42_genomic.fna`)
 
-As an example, for B. velezensis FZB42 files containing protein, feature
-and genomic data could be downloaded from
+As an example, for *B. velezensis* FZB42 files containing protein,
+feature and genomic data could be downloaded from
 [ftp.ncbi.nlm.nih.gov](https://goo.gl/3oVBvv) following the url links
 indicated below.
 
@@ -348,7 +351,7 @@ The result will be the creation of two files:
 #### Section I.3. BLAST searches.
 
 GeM-Pro needs BLAST output files of all protein sequences (not just
-those of interest) of the model strain (i.e. B. velezensis FZB42)
+those of interest) of the model strain (i.e. *B. velezensis* FZB42)
 against all protein sequences encoded in all the strains to be profiled.
 Blast.R script runs BLASTP using fasta files containing the strains
 protein sequences (proteomes in this context) and creates output files
