@@ -6,21 +6,49 @@ GeM-Pro and q-GeM
 **Authors:** Mariano Torres Manno; María D. Pizarro; Marcos Prunello;
 Christian Magni; Lucas D. Daurelo; Martín Espariz
 
+## Content
+
+  - [I. GeM-Pro](#i-gem-pro)
+      - [Requirements](#requirements)
+      - [GeM-Pro Quick Tutorial](#gem-pro-quick-tutorial)
+      - [GeM-Pro Tutorial](#gem-pro-tutorial)
+          - [Section I.1. Input files](#section-i1-input-files)
+          - [Section I.2. Phylogenetic group
+            circumsription](#section-i2-phylogenetic-group-circumsription-optional)
+              - [ANI computation](#ani-computation)
+              - [Definition of phylogenetic
+                groups](#definition-of-phylogenetic-groups)
+          - [Section I.3. Blast searches](#section-i3-blast-searches)
+          - [Section I.4. Protein sequence prediction in non-annotated
+            genomes](#section-i4-protein-sequence-prediction-in-non-annotated-genomes-optional)
+          - [Section I.5. Converting features
+            files](#section-i5-converting-features-files)
+          - [Section I.6. Feature information for non-annotated
+            genomes](#section-i6-feature-information-for-non-annotated-genomes-optional)
+          - [Section I.7. GeM-Pro
+            execution](#section-i7-gem-pro-execution)
+          - [Section I.8. Hierarchical
+            clustering](#section-i8-hierarchical-clustering)
+  - [II. q-GeM](#ii-q-gem)
+      - [q-GeM Quick Tutorial](#q-gem-quick-tutorial)
+      - [q-GeM Tutorial](#q-gem-tutorial)
+          - [Section II.1. Input files](#section-ii1-input-files)
+          - [Section II.2. Best Classifier
+            section](#section-ii2-best-classifier-section)
+          - [Section II.3. Blast searches](#section-ii3-blast-searches)
+          - [Section II.4. Converting features
+            files](#section-iI4-converting-features-files)
+          - [Section II.5. q-GeM
+            execution](#section-ii5-q-gem-execution)
+          - [Section II.6. Hierarchical
+            clustering](#section-ii6-hierarchical-clustering)
+
 ## I. GeM-Pro
 
 GeM-Pro (functional profiling by orthologous repertoire inferred by
 Bayesian probability and Synteny analysis) is a tool for strain
 profiling based on their repertoires of orthologous pathways of
 interest.
-
-## Content
-
-  - [Requirements](#requirements)
-  - [GeM-Pro Quick Tutorial](#gem-pro-quick-tutorial)
-  - [GeM-Pro Tutorial](#gem-pro-tutorial)
-      - [Section I.1. Input files](#section-i-1-input-files)
-      - [Section I.2. Phylogenetic group
-        circumsription](#Section-I-2-Phylogenetic-group-circumsription-optional)
 
 ### Requirements
 
