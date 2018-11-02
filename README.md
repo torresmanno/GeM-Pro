@@ -564,7 +564,7 @@ phylogenetic group. The phylogenetic group was previously analyzed with
 GeM-Pro.
 
 More information can be found in the [Example
-Case](./Examples/Example_Case3.md)
+Case](./Examples/Example_Case4.md)
 
 *Step 1*. Define Best
 classifier.
