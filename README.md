@@ -1,7 +1,6 @@
 GeM-Pro and q-GeM
 ================
 
-## IMPORTANT: Scripts and Example Data will be available after manuscript acceptance (under evaluation)
 
 **Authors:** Mariano Torres Manno; María D. Pizarro; Marcos Prunello;
 Christian Magni; Lucas D. Daurelo; Martín Espariz
