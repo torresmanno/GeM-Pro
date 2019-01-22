@@ -329,7 +329,7 @@ be listed one per line without header.
 | 7\_6\_55CFAA\_CT2 |
 | VD200             |
 
-#### Section I.2. Phylogenetic group circumsription (optional).
+#### Section I.2. Phylogenetic group circumscription (optional).
 
 #### ANI computation
 
