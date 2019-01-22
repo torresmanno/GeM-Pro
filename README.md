@@ -20,7 +20,7 @@ Christian Magni; Lucas D. Daurelo; Martín Espariz
       - [GeM-Pro Tutorial](#gem-pro-tutorial)
           - [Section I.1. Input files](#section-i1-input-files)
           - [Section I.2. Phylogenetic group
-            circumsription](#section-i2-phylogenetic-group-circumsription-optional)
+            circumscription](#section-i2-phylogenetic-group-circumscription-optional)
               - [ANI computation](#ani-computation)
               - [Definition of phylogenetic
                 groups](#definition-of-phylogenetic-groups)
