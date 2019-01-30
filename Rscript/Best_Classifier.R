@@ -8,7 +8,6 @@ Best_Classificator <- function(Bayes.table.all){
     doParallel::registerDoParallel(cl)
     `%dopar%` <- foreach::`%dopar%`
     if (classif =="LDA"){
-      # error <- parallel::parSapply(cl, 1:10, FUN = function(i){
       errors <- foreach::foreach(i = 1:10, .combine = "rbind") %dopar%{
         fit = MASS::lda(Class ~ P.Ident, data = trait[folds !=i, ])
         probs = predict(fit, trait[folds == i, ])$posterior[, 2]
@@ -19,7 +18,6 @@ Best_Classificator <- function(Bayes.table.all){
       }
 
     } else if (classif== "LR") {
-      # error <- parallel::parSapply(cl, 1:10, FUN = function(i){
       errors <- foreach::foreach(i = 1:10, .combine = "rbind") %dopar% {
         fit = glm(Class ~ P.Ident , data = trait[folds != i, ], family = "binomial")
         probs = predict(fit, trait[folds == i, ],type = "response")
@@ -29,7 +27,6 @@ Best_Classificator <- function(Bayes.table.all){
         })
       }
     }
-    # parallel::stopCluster(cl)
 
     CVerrors = colMeans(errors)
     names(CVerrors) = thresholds
@@ -149,6 +146,3 @@ dir.create(out.path, showWarnings = F, recursive = T)
 mapply(function(bt, name){
   saveRDS(Best_Classificator(bt), paste0(out.path, "/", name, "_Best_class.RDS"))
 }, bt.all, names(bt.all))
-# Best_Class <- lapply(bt.all, Best_Classificator)
-
-# saveRDS(Best_Class, "Best_Class.RDS")

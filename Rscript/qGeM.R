@@ -86,8 +86,6 @@ GetQueryFeature <- function(query.feature.file, selected.genes.DF) {
   # Lista de genes PGP
   Feature.Query.PGP <-
     Feature.Query[which(Feature.Query$product_accession %in% selected.genes.DF$Acc_Ver),]
-  # agrego la columna via
-  # Los genes nuevos no tenian el symbol asi que los tome de la tabla PGP y le cambie el nombre a la columna
   Feature.Query.PGP <-
     merge.data.frame(
       x = Feature.Query.PGP[-15] ,
@@ -287,7 +285,6 @@ GetSyntenyTable <-
       names(df)[names(df) == "BitScore"] <- "Score"
       return(df)
     })
-    # Synteny_table_list <- list()
     Synteny_table_list <- list()
     for(strain in names(feature.subject.pgp)){
       Synteny_table_list[[strain]] <-
@@ -336,6 +333,7 @@ subject.feature <- readRDS(args[6])
 query.feature.file <- args[7]
 out.path <- args[8]
 
+# check if reference strain is in the strains to compare.
 if(main.strain %in% phylo.group.df$Strains){
   with.ref = T
   phylo.group.df <- phylo.group.df[!phylo.group.df$Strains %in% main.strain,]
@@ -344,32 +342,55 @@ if(main.strain %in% phylo.group.df$Strains){
 }
 
 groups <- unique(phylo.group.df$Groups)
-strains <- sapply(groups, function(g) phylo.group.df$Strains[phylo.group.df$Groups==g], simplify = F, USE.NAMES = T)
+strains <-
+  sapply(groups, function(g)
+    phylo.group.df$Strains[phylo.group.df$Groups == g], simplify = F, USE.NAMES = T)
 
-best_class_list <- sapply(groups, function(g) readRDS(paste0(best_class, g, "_Best_class.RDS")),simplify = F, USE.NAMES = T)
+best_class_list <-
+  sapply(groups, function(g)
+    readRDS(paste0(best_class, g, "_Best_class.RDS")), simplify = F, USE.NAMES = T)
 
-raw.blast <- sapply(groups, function(g) ReadBlastTables(main.strain, strains[[g]], blast.path),simplify = F, USE.NAMES = T)
+raw.blast <-
+  sapply(groups, function(g)
+    ReadBlastTables(main.strain, strains[[g]], blast.path), simplify = F, USE.NAMES = T)
 
-test.list <- sapply(groups, function(g) lapply(raw.blast[[g]], ort.table),simplify = F, USE.NAMES = T)
+test.list <-
+  sapply(groups, function(g)
+    lapply(raw.blast[[g]], ort.table), simplify = F, USE.NAMES = T)
 
-Prediction_list <- sapply(groups, function(g) lapply(test.list[[g]], Predictor, classificator = best_class_list[[g]]),simplify = F, USE.NAMES = T)
+Prediction_list <-
+  sapply(groups, function(g)
+    lapply(test.list[[g]], Predictor, classificator = best_class_list[[g]]), simplify = F, USE.NAMES = T)
 
 query.feature.pgp <- GetQueryFeature(query.feature.file, pgp.genes)
 
-subject.feature.pgp.list <-  sapply(groups, function(g) GetSubjectFeature.orth(subject.feature, Prediction_list[[g]], pgp.genes),simplify = F, USE.NAMES = T)
+subject.feature.pgp.list <-
+  sapply(groups, function(g)
+    GetSubjectFeature.orth(subject.feature, Prediction_list[[g]], pgp.genes), simplify = F, USE.NAMES = T)
 
-subject.feature.list <- sapply(groups, function(g) subject.feature[strains[[g]]])
-synteny.table.list <- sapply(groups, function(g) GetSyntenyTable(subject.feature.list[[g]], subject.feature.pgp.list[[g]], feature.query.pgp = query.feature.pgp),simplify = F, USE.NAMES = T)
+subject.feature.list <-
+  sapply(groups, function(g)
+    subject.feature[strains[[g]]])
+synteny.table.list <-
+  sapply(groups, function(g)
+    GetSyntenyTable(
+      subject.feature.list[[g]],
+      subject.feature.pgp.list[[g]],
+      feature.query.pgp = query.feature.pgp
+    ), simplify = F, USE.NAMES = T)
 
 dir.create(out.path, showWarnings = F,recursive = T)
 
 saveRDS(Prediction_list, paste0(out.path, "/orthologous.RDS"))
 saveRDS(synteny.table.list, paste0(out.path, "/synteny.RDS"))
 pangenome <- GetPangenome(synteny.table.list, pgp.genes)
+
+# If the ref strain is in the list of genomes to compare it add the main strain with all the pathways.
 if(with.ref){
   pangenome[,main.strain] <- 3
 }
 
+# Create ITOL file
 Colors <- c("#2dc72d","#2cb9d9","#d94c2c","#95362b","#64a871","#6f6398","#cf041c","#ff49ea","#036d5a","#9b014b","#0552d7","#daa520")
 
 itol.data.set <- c(

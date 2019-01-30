@@ -40,14 +40,12 @@ OrthoTables <- function(blast.table.list,
   # Naming the tables
   blast.table.list <- lapply(blast.table.list, setNames, column.names)
 
-  # Si hay que sacar una lista de genes query
   if (!is.null(excluded.genes)) {
     blast.table.list <- lapply(blast.table.list, function(df){
       df[-grep(paste(excluded.genes, collapse = "|"),
                x = df$Gen),]
     })
   }
-  # Si hay que hacer un subset lo hago
   if (!is.null(selected.genes)) {
     blast.table.list <- lapply(blast.table.list, function(df){
       df[grep(paste(selected.genes, collapse = "|"),
@@ -497,7 +495,6 @@ GetSyntenyTable <-
             feature.subject.pgp,
             feature.query.pgp ) {
     strainList <- names( feature.subject.pgp )
-    # Synteny_table_list <- list()
     Synteny_table_list <- mapply( SyntenyTableMaker,
                                   feature.subject,
                                   feature.subject.pgp,
@@ -536,20 +533,24 @@ if (!require("data.table")) install.packages("data.table")
 main.strain <- args[1]
 phylo.group.df <- read.csv(file = args[2], header = T, col.names = c("Strains", "Groups"), stringsAsFactors = F)
 
+# check if reference strain is in the strains to compare.
 if(main.strain %in% phylo.group.df$Strains){
   with.ref = T
   phylo.group.df <- phylo.group.df[!phylo.group.df$Strains %in% main.strain,]
 }else {
   with.ref = F
 }
-# raw.blast <- readRDS(args[3])
+
 blast.dir <- args[3]
 pgp.genes <- read.csv(args[4], header = T, stringsAsFactors = F)
 subject.feature <- readRDS(args[5])
 query.feature.file <- args[6]
 out.folder <- args[7]
 
-phylo.group.list <- sapply(unique(phylo.group.df$Groups), function(g) phylo.group.df$Strains[phylo.group.df$Groups==g],simplify = F, USE.NAMES = T)
+# Make a list with the phylo groups
+phylo.group.list <- sapply(unique(phylo.group.df$Groups), function(g){
+  phylo.group.df$Strains[phylo.group.df$Groups==g]
+} ,simplify = F, USE.NAMES = T)
 
 strains <- phylo.group.df$Strains
 
@@ -557,6 +558,7 @@ raw.blast <- ReadBlastTables(main.strain, strains, blast.dir)
 
 query.feature.pgp <- GetQueryFeature(query.feature.file, pgp.genes)
 
+# Make a list with the blast tables and the features tables
 raw.blast.list <- list()
 subject.feature.list <- list()
 for (groups in names(phylo.group.list)){
@@ -568,15 +570,19 @@ rm(raw.blast, subject.feature)
 ortho.tables.list <- lapply(X = raw.blast.list, FUN = OrthoTables)
 
 
-GeMPro_DB <- mapply(function(ph, ort){
-  Get.GeMPro.DB(ph, ortho.tables.list = ort, selected.genes = pgp.genes)
-},
-names(phylo.group.list),
-ortho.tables.list,
-SIMPLIFY = F,
-USE.NAMES = T
+GeMPro_DB <- mapply(
+  function(ph, ort) {
+    Get.GeMPro.DB(ph,
+                  ortho.tables.list = ort,
+                  selected.genes = pgp.genes)
+  },
+  names(phylo.group.list),
+  ortho.tables.list,
+  SIMPLIFY = F,
+  USE.NAMES = T
 )
 
+# extract the bayes table
 Bayes.table <- sapply(GeMPro_DB, "[", 7)
 
 subject.feature.pgp.list <- mapply(GetSubjectFeatureBayes,
@@ -595,15 +601,18 @@ synteny.table.list <- mapply(GetSyntenyTable,
 dir.create(out.folder, showWarnings = F, recursive = T)
 saveRDS(ortho.tables.list, file = paste0(out.folder, "IWNO.RDS"))
 saveRDS(GeMPro_DB, file = paste0(out.folder, "GeMPro_DB.RDS"))
-# saveRDS(subject.feature.pgp.list, file = paste0(out.folder, "subject.feature.pgp.RDS"))
 saveRDS(synteny.table.list, file = paste0(out.folder, "synteny.list.RDS"))
+
 pangenome <- GetPangenome(synteny.table.list, pgp.genes)
+
+# If the ref strain is in the list of genomes to compare it add the main strain with all the pathways.
 if(with.ref){
   pangenome[,main.strain] <- 3
 }
 
 saveRDS(pangenome, file = paste0(out.folder, "pathway.profiles.RDS"))
 
+# Create ITOL file
 Colors <- c("#2dc72d","#2cb9d9","#d94c2c","#95362b","#64a871","#6f6398","#cf041c","#ff49ea","#036d5a","#9b014b","#0552d7","#daa520")
 
 itol.data.set <- c(
@@ -626,5 +635,6 @@ itol.data.set <- c(
   "DATA",
   ""
 )
+
 writeLines(itol.data.set, paste0(out.path, "pathway.profiles.txt"))
 write.table(t(pangenome), file = paste0(out.path, "pathway.profiles.txt"), quote = F, row.names = T, sep = ",", append = T, col.names = F)
