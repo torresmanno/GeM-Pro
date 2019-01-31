@@ -1,5 +1,5 @@
 # GeM-Pro
 
-### Gem-Pro Scripts
+### GeM-Pro Scripts
 
 Run this scripts using Rsript.
