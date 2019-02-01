@@ -1,3 +1,4 @@
 *.Rmd
 .Rproj.user
 GeM-Pro.Rproj
+.Rhistory
