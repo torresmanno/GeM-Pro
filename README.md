@@ -313,6 +313,10 @@ indicated below.
   - [Feature](https://goo.gl/YkyJyW)
   - [Genomic](https://goo.gl/N2J3js)
 
+Alternatively the shiny tool [Download Genomes](https://github.com/torresmanno/Download_Genomes) 
+can be use to download large number of genomes, proteins, or features of 
+any species from GenkBank or RefSeq. 
+
 Finally, a file indicating the list of strains to be analysed should be
 provided. It is suggested to name this file strains.txt. Strains should
 be listed one per line without header.
