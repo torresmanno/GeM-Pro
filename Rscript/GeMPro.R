@@ -636,5 +636,5 @@ itol.data.set <- c(
   ""
 )
 
-writeLines(itol.data.set, paste0(out.path, "pathway.profiles.txt"))
-write.table(t(pangenome), file = paste0(out.path, "pathway.profiles.txt"), quote = F, row.names = T, sep = ",", append = T, col.names = F)
+writeLines(itol.data.set, paste0(out.folder, "pathway.profiles.txt"))
+write.table(t(pangenome), file = paste0(out.folder, "pathway.profiles.txt"), quote = F, row.names = T, sep = ",", append = T, col.names = F)
